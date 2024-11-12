@@ -1,0 +1,22 @@
+@model LibraryManagement.Models.LibraryBranch
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>Update LibraryBranch</h2>
+
+<form asp-controller="LibraryBranch" asp-action="Update" method="post">
+    <!-- LibraryBranchId should be hidden because it's not editable -->
+    <input type="hidden" asp-for="LibraryBranchId" />
+    <div class="form-group">
+        <label asp-for="BranchName">Branch Name</label>
+        <input asp-for="BranchName" class="form-control" />
+        <span asp-validation-for="BranchName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

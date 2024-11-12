@@ -1,0 +1,32 @@
+@model List<LibraryManagement.Models.Customer>
+
+<h2>Customer Lists</h2>
+<a href="@Url.Action("Create", "Customer")" class="btn btn-success">Create Customer</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    <!-- Update button/link -->
+                    <a href="@Url.Action("Update", "Customer", new { id = customer.CustomerId })"
+                        class="btn btn-warning">Update</a>
+
+                    <!-- Delete button/link -->
+                    <a href="@Url.Action("Delete", "Customer", new { id = customer.CustomerId })"
+                        class="btn btn-danger">Delete</a>
+                </td>
+                <td>@customer.CustomerId</td>
+                <td>@customer.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,18 @@
+@model LibraryManagement.Models.LibraryBranch
+
+<h2>Delete Library Branch</h2>
+
+<div>
+    <h4>Are you sure you want to delete this library branch?</h4>
+    <div>
+        <strong>Branch Name:</strong> @Model.BranchName
+    </div>
+
+    <form asp-controller="LibraryBranch" asp-action="Delete" method="post">
+        <!-- Hidden LibraryBranchId to pass to the Delete action -->
+        <input type="hidden" asp-for="LibraryBranchId" />
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

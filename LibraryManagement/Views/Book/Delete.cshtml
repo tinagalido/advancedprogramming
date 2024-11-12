@@ -1,0 +1,32 @@
+@model LibraryManagement.Models.Book
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>Delete Book</h2>
+
+<div>
+    <h4>Are you sure you want to delete this book?</h4>
+    <div>
+        <strong>Title:</strong> @Model.Title
+    </div>
+    <div>
+        <strong>Author Id:</strong> @Model.AuthorId
+    </div>
+    <div>
+        <strong>Library Branch Id:</strong> @Model.LibraryBranchId
+    </div>
+
+    <form asp-controller="Book" asp-action="Delete" method="post">
+        <!-- Hidden BookId to pass to the Delete action -->
+        <input type="hidden" asp-for="BookId" />
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
