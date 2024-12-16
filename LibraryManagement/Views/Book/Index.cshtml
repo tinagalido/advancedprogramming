@@ -1,5 +1,8 @@
 @model List<LibraryManagement.Models.Book>
 
+@{
+    ViewData["Title"] = "Book";
+}
 <h2>Book Lists</h2>
 <a href="@Url.Action("Create", "Book")" class="btn btn-success">Create Book</a>
 
